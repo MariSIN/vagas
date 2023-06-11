@@ -12,7 +12,7 @@ var teste5 = require("./teste5");
 app.set('view engine', 'jade');
 
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());                        
 app.use(bodyParser.urlencoded({ extended: true }));
