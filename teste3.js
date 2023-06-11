@@ -1,15 +1,15 @@
-var data =  require("./fakeData");
+var data = require('./fakeData');
+const { statusCode } = require('./statusCode');
 
-module.exports = function(req, res) {
-  
-    var name =  req.query.name;
+module.exports = function (req, res) {
+	const { name } = req.query;
 
-    for(let i = 0; i < data.length;  i++) {
-        if(i.name == name) {
-            data[i] = null;
-        }
-    }
+	const user = data.filter((e) => e.name !== name);
 
-    res.send("success");
-
+	if (user.length < data.length) {
+		data = user;
+		res.status(statusCode.ok).json({ message: 'Usuário deletado' });
+	} else {
+		res.status(statusCode.notFound).json({ message: 'Usuário não encontrado' });
+	}
 };
