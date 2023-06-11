@@ -1,4 +1,5 @@
-var data =  require("./fakeData");
+const data =  require('./fakeData');
+const { statusCode } = require('./statusCode');
 
 const getUser = ( req, res, next ) => {
     
@@ -7,9 +8,9 @@ const getUser = ( req, res, next ) => {
     const user = data.filter((user) => user.name === name);
 
     if(user.length > 0) {
-        res.status(200).json(user)
+        res.status(statusCode.ok).json(user)
     } else {      
-        res.status(404).json({ message: 'Usuário não encontrado' });
+        res.status(statusCode.notFound).json({ message: 'Usuário não encontrado' });
     }
 };
 
@@ -17,7 +18,7 @@ const getUsers = ( req, res, next ) => {
 
     const user = data.map((e) => e)
     
-    res.status(200).json(user)
+    res.status(statusCode.ok).json(user)
     
 };
 
