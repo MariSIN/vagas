@@ -30,7 +30,7 @@ app.get('/', function(req, res){
 
 app.get("/user", teste1.getUser);
 app.get("/users", teste1.getUsers);
-app.post("/users", teste2)
+app.post("/users", teste2.postUser);
 app.delete("/users", teste3)
 app.put("/users", teste4)
 app.get("/users/access", teste5);
