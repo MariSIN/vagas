@@ -8,8 +8,8 @@ module.exports = function (req, res) {
 
 	if (user.length < data.length) {
 		data = user;
-		res.status(statusCode.ok).json({ message: 'Usuário deletado' });
+		return res.status(statusCode.ok).json({ message: 'Usuário deletado' });
 	} else {
-		res.status(statusCode.notFound).json({ message: 'Usuário não encontrado' });
+		return res.status(statusCode.notFound).json({ message: 'Usuário não encontrado' });
 	}
 };
