@@ -3,9 +3,9 @@ const { statusCode } = require('./statusCode');
 
 module.exports = function (req, res) {
 	const { id } = req.query;
-	const { name, job } = req.body;
+	const { name, job, permissions } = req.body;
 
-	const user = data.find((d) => d.id == id);
+	const user = data.find((d) => d.id == +id);
 
 	if (!user) {
 		return res
@@ -15,6 +15,7 @@ module.exports = function (req, res) {
 
 	user.name = name || user.name;
 	user.job = job || user.job;
+	user.permissions = permissions || user.permissions;
 
 	return res
 		.status(statusCode.ok)

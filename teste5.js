@@ -5,6 +5,6 @@ module.exports = function(req, res){
 
     const readCount = countData.readCount[name] || 0;
 
-   res.send(`Usuário ${name} foi lido ${readCount} vezes.`);
+   return res.send(`Usuário ${name} foi lido ${readCount} vezes.`);
 
 };

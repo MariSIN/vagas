@@ -5,6 +5,7 @@ const statusCode = {
     conflict: 409,
     badRequest: 400,
     unauthorized: 401,
+    forbidden: 403,
     noContent: 204,
     unprocessableEntity: 422,
     internalServerError: 500,
