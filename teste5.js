@@ -1,9 +1,10 @@
-
+const countData = require("./fakeDataReadCount");
 
 module.exports = function(req, res){
-    
-    var name =  req.query.name;
+    const { name } =  req.query;
 
-    res.send("Usuário " +  name  + "  foi lido 0 vezes.");
+    const readCount = countData.readCount[name] || 0;
+
+   res.send(`Usuário ${name} foi lido ${readCount} vezes.`);
 
 };
